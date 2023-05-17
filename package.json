@@ -1,5 +1,5 @@
 {
-  "name": "react-ts-app",
+  "name": "pr_compilation_front",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,9 +8,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "lint": "eslint --ext .js,.cjs,.ts,.tsx .",
-    "lint:fix": "eslint --ext .js,.cjs,.ts,.tsx . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint-fix": "eslint --fix --ext .ts,.tsx .",
+    "lint-style-fix": "stylelint --config .stylelintrc --fix {src/*.scss,src/app/**/*.scss,src/features/**/*.scss,src/pages/**/*.scss,src/shared/**/*.scss}",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -57,10 +58,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
-      "eslint --max-warnings=0 --fix"
-    ],
-    "src/**/*.scss": [
-      "stylelint --config .stylelintrc --max-warnings=0 --fix"
+      "yarn lint-fix"
     ]
   },
   "license": "MIT"
