@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-config-prettier-scss",
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "selector-class-pattern": ".",
+    "keyframes-name-pattern": ".",
+    "no-descending-specificity": null,
+    "value-no-vendor-prefix": [true, {
+      "ignoreValues": ["box"]
+    }]
+  }
+}
+
