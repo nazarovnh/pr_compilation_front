@@ -23,5 +23,32 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/function-component-definition': 'off',
+    'no-console': 'off',
+    indent: ['off', 2],
+    'linebreak-style': ['off', 'unix'],
+    quotes: ['off'],
+    semi: ['warn', 'always'],
+    'comma-dangle': [
+      'warn',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
+    'object-curly-spacing': ['error', 'always'],
+    'import/no-unresolved': 'error',
+    'import/no-named-as-default': 0,
+    'import/no-named-as-default-member': 0,
+    'react/jsx-one-expression-per-line': ['warn', { allow: 'single-child' }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'prettier/prettier': 'error',
+    'react/jsx-no-leaked-render': [
+      'error',
+      { validStrategies: ['ternary', 'coerce'] },
+    ],
   },
 };
