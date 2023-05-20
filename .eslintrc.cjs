@@ -46,9 +46,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'prettier/prettier': 'error',
-    'react/jsx-no-leaked-render': [
-      'error',
-      { validStrategies: ['ternary', 'coerce'] },
-    ],
+    'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary', 'coerce'] }],
   },
 };
