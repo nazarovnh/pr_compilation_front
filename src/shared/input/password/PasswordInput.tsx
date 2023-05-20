@@ -1,16 +1,24 @@
 import { useState } from 'react';
 import { TextField } from '@mui/material';
 
+import './PasswordInput.scss';
+
 interface PasswordInputProps {
+  className?: string;
   password: string;
   error: string;
   setPassword: (event: string) => void;
   setError: (event: string) => void;
 }
 
-const PasswordInput = ({ password, error, setPassword, setError }: PasswordInputProps) => {
+const PasswordInput = ({
+  className = '',
+  password,
+  error,
+  setPassword,
+  setError,
+}: PasswordInputProps) => {
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
-
   const validatePassword = (value: string) => {
     if (value.length < 8) {
       setError('Password must be more than 8 symbols');
@@ -41,6 +49,7 @@ const PasswordInput = ({ password, error, setPassword, setError }: PasswordInput
 
   return (
     <TextField
+      className={`password-input ${className}`}
       label="Password"
       type="password"
       autoComplete="current-password"

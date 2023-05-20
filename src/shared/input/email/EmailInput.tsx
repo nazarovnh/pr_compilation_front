@@ -2,14 +2,17 @@ import { useState } from 'react';
 
 import { TextField } from '@mui/material';
 
+import './EmailInput.scss';
+
 interface EmailInputProps {
+  className?: string;
   email: string;
   error: string;
   setEmail: (event: string) => void;
   setError: (event: string) => void;
 }
 
-const EmailInput = ({ email, error, setEmail, setError }: EmailInputProps) => {
+const EmailInput = ({ className = '', email, error, setEmail, setError }: EmailInputProps) => {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
   const validateEmail = (value: string) => {
@@ -40,6 +43,7 @@ const EmailInput = ({ email, error, setEmail, setError }: EmailInputProps) => {
 
   return (
     <TextField
+      className={`email-input ${className}`}
       label="Email"
       type="email"
       autoComplete="current-password"

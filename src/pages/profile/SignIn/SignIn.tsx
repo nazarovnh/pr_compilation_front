@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Button, Container, Typography } from '@mui/material';
 
 import Card from '../../../shared/card/Card';
-import PasswordInput from '../../../shared/input/PasswordInput';
-import EmailInput from '../../../shared/input/EmailInput';
+import PasswordInput from '../../../shared/input/password/PasswordInput';
+import EmailInput from '../../../shared/input/email/EmailInput';
 
 import './SignIn.scss';
 
@@ -27,29 +27,32 @@ const SignIn: React.FC = () => {
 
   return (
     <div className="signin">
-      <Card>
+      <Card className="signin_card">
         <Container maxWidth="xs">
           <Typography variant="h3">Вход</Typography>
           <form className="form-container" onSubmit={handleFormSubmit}>
             <EmailInput
+              className="form-container__email-input"
               email={email}
               error={errorEmail}
               setEmail={setEmail}
               setError={setErrorEmail}
             />
             <PasswordInput
+              className="form-container__password-input"
               password={password}
               error={errorPassword}
               setPassword={setPassword}
               setError={setErrorPassword}
             />
             <Button
+              className="form-container__button"
               type="submit"
               variant="contained"
               color="primary"
               disabled={!email || !password || !isValid()}
             >
-              Sign In
+              Войти
             </Button>
           </form>
         </Container>

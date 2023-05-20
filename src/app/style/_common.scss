@@ -1,0 +1,59 @@
+$hd-h: 720px;
+$middle-h: 900px;
+$full-hd-h: 1080px;
+$two-k-h: 1440px;
+$ultra-hd-h: 2160px;
+$hd-w: 1280px;
+$middle-w: 1600px;
+$wxga-p-w: 1440px;
+$wsxga-w: 1680px;
+$full-hd-w: 1920px;
+$two-k-w: 2560px;
+$ultra-hd-w: 3840px;
+$mobile-w: 1000px;
+$mobile-wide-w: 600px;
+$mobile-narrow-w: 400px;
+
+// @function get-vw($target, $screen-size) {
+//   $vw-context: ($screen-size * 0.01);
+
+//   @return ($target / $vw-context) * 1vw;
+// }
+
+// @function get-vh($target, $screen-size) {
+//   $vh-context: ($screen-size * 0.01);
+
+//   @return (calc($target / $vh-context) * 1vh);
+// }
+
+// @function get-mobile-vh($target) {
+//   @return (calc(var(--vh, 1vh) * $target));
+// }
+
+// @mixin heigth($target) {
+//   @media screen and (max-height: $two-k-h) {
+//     height: get-vh($target, $two-k-h);
+//   }
+
+//   @media screen and (max-height: $full-hd-h) {
+//     height: get-vh($target, $full-hd-h);
+//   }
+
+//   @media screen and (max-height: $hd-h) {
+//     height: get-vh($target, $hd-h);
+//   }
+// }
+
+// @mixin width($target) {
+//   @media screen and (max-width: $two-k-w) {
+//     width: get-vw($target, $two-k-w);
+//   }
+
+//   @media screen and (max-width: $full-hd-w) {
+//     width: get-vw($target, $full-hd-w);
+//   }
+
+//   @media screen and (max-width: $hd-w) {
+//     width: get-vw($target, $hd-w);
+//   }
+// }
