@@ -2,6 +2,9 @@ const routes = {
   root: {
     index: '/',
   },
+  profile: {
+    signIn: 'signIn',
+  },
   wildcard: '*',
   id: ':id',
 };

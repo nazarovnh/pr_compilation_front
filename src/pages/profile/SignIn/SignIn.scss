@@ -1,0 +1,14 @@
+.signin {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .main-container {
+    color: var(--main-background-color);
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
