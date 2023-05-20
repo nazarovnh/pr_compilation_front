@@ -1,3 +1,5 @@
+@use '../src/app/style/_color.scss';
+
 @font-face {
   font-family: Roboto;
   src: url('./app/style/fonts/Roboto-Bold.woff2') format('woff2'),
@@ -35,13 +37,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-width: none;
+  background-color: var(--main-background-color);
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
-  
-  
+
 body h2 {
   font-family: Roboto, sans-serif;
   font-size: 60px;
