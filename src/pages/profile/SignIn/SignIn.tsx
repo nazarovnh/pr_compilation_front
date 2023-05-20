@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { Button, Container, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 import Card from '../../../shared/card/Card';
 import PasswordInput from '../../../shared/input/password/PasswordInput';
@@ -9,6 +10,7 @@ import EmailInput from '../../../shared/input/email/EmailInput';
 import './SignIn.scss';
 
 const SignIn: React.FC = () => {
+  const { t } = useTranslation('t', { keyPrefix: 'signIn' });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
@@ -52,7 +54,7 @@ const SignIn: React.FC = () => {
               color="primary"
               disabled={!email || !password || !isValid()}
             >
-              Войти
+              <span>{t('button.submit')}</span>
             </Button>
           </form>
         </Container>
