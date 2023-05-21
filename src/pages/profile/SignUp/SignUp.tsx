@@ -1,21 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Container, Link, Typography } from '@mui/material';
 
-import { useLazySignInQuery } from '../../../features/auth/api/authApi';
-import { changeIsAuth } from '../../../features/auth/slice/authSlice';
 import Card from '../../../shared/card/Card';
 import PasswordInput from '../../../shared/input/password/PasswordInput';
 import EmailInput from '../../../shared/input/email/EmailInput';
 
-import './SignIn.scss';
-
-const SignIn: React.FC = () => {
+const SignUp = () => {
   const { t } = useTranslation('t', { keyPrefix: 'signIn' });
-  const dispatch = useDispatch();
-  const [signIn] = useLazySignInQuery();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
@@ -27,18 +20,11 @@ const SignIn: React.FC = () => {
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    signIn({ email: email, password: password.trim() })
-      .unwrap()
-      .then((response) => {
-        localStorage.setItem('accessToken', response.accessToken);
-        dispatch(changeIsAuth(true));
-      });
   };
 
   return (
-    <div className="signin">
-      <Card className="signin_card">
+    <div className="signup">
+      <Card className="signup_card">
         <Container maxWidth="xs">
           <Typography variant="h3">{t('header.title')}</Typography>
           <form className="form-container" onSubmit={handleFormSubmit}>
@@ -75,4 +61,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

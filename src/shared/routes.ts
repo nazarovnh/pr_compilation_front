@@ -3,6 +3,7 @@ const routes = {
     index: '/',
   },
   profile: {
+    signUp: 'signUp',
     signIn: 'signIn',
   },
   wildcard: '*',

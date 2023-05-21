@@ -7,7 +7,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
-  isAuth: false,
+  isAuth: !!localStorage.getItem('accessToken'),
 };
 
 const authSlice = createSlice({
@@ -15,7 +15,6 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     changeIsAuth: (state: AuthState, action: PayloadAction<boolean>) => {
-      console.log(`action ${action.payload}`);
       state.isAuth = action.payload;
     },
   },

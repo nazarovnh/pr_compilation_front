@@ -1,11 +1,18 @@
 {
     "t": {
+        "subjects": {
+            "title": "Ваши дисциплины",
+            "defaultLanguage": "C++, Python, Java"
+        },
         "signIn": {
             "header": {
                 "title": "Вход"
             },
             "button": {
                 "submit": "Войти"
+            },
+            "helpText": {
+                "notRegister": "У вас нет аккаунта? Зарегистрируйтесь."
             }
         }
     }
