@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
 import { authMiddleware } from '../auth/api/authApi';

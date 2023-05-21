@@ -6,7 +6,9 @@ export const AUTH_API = 'AUTH_API';
 
 const authApi = createApi({
   reducerPath: AUTH_API,
-  baseQuery: retry(fetchBaseQuery({ baseUrl: serverAddress }), { maxRetries: 0 }),
+  baseQuery: retry(fetchBaseQuery({ baseUrl: serverAddress }), {
+    maxRetries: 0,
+  }),
   endpoints: (builder) => ({
     signIn: builder.query<SignInResponse, SignInRequest>({
       query: (request) => ({

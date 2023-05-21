@@ -1,6 +1,9 @@
 {
     "t": {
         "signIn": {
+            "header": {
+                "title": "Вход"
+            },
             "button": {
                 "submit": "Войти"
             }

@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAppSelector } from '../../features/hook';
 
 function NotAuthorizedLayout() {
-  //   const isAuth = useSelector((state) => state.auth.isAuth);
-  const isAuth = false;
+  const isAuth = useAppSelector((state) => state.AUTH.isAuth);
+
   if (isAuth) {
     return <Navigate to="/" replace />;
   }

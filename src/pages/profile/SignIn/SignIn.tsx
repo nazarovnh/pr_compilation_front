@@ -9,9 +9,12 @@ import PasswordInput from '../../../shared/input/password/PasswordInput';
 import EmailInput from '../../../shared/input/email/EmailInput';
 
 import './SignIn.scss';
+import { changeIsAuth } from '../../../features/auth/slice/authSlice';
+import { useDispatch } from 'react-redux';
 
 const SignIn: React.FC = () => {
   const { t } = useTranslation('t', { keyPrefix: 'signIn' });
+  const dispatch = useDispatch();
   const [signIn] = useLazySignInQuery();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,19 +30,16 @@ const SignIn: React.FC = () => {
 
     signIn({ email: email, password: password.trim() })
       .unwrap()
-      .then((response) => console.log(response));
-
-    if (isValid()) {
-      console.log('Email:', email);
-      console.log('Password:', password);
-    }
+      .then(() => {
+        dispatch(changeIsAuth(true));
+      });
   };
 
   return (
     <div className="signin">
       <Card className="signin_card">
         <Container maxWidth="xs">
-          <Typography variant="h3">Вход</Typography>
+          <Typography variant="h3">{t('header.title')}</Typography>
           <form className="form-container" onSubmit={handleFormSubmit}>
             <EmailInput
               className="form-container__email-input"

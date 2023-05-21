@@ -7,6 +7,7 @@ import routes from '../shared/routes';
 import SignIn from '../pages/profile/SignIn/SignIn';
 import NotAuthorizedLayout from '../pages/layouts/NotAuthorizedLayout';
 import PrivateLayout from '../pages/layouts/PrivateLayout';
+import './translation/translation';
 
 const App = (): JSX.Element => {
   return (
