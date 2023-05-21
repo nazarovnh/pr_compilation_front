@@ -11,18 +11,18 @@ const authApi = createApi({
     signIn: builder.query<SignInResponse, SignInRequest>({
       query: (request) => ({
         method: 'POST',
+        url: '/signin',
         body: {
-          messageMapId: 'sign-in',
-          arguments: request,
+          ...request,
         },
       }),
     }),
     signUp: builder.query<void, SignUpRequest>({
       query: (request) => ({
         method: 'POST',
+        url: '/signup',
         body: {
-          messageMapId: 'sign-up',
-          arguments: request,
+          ...request,
         },
       }),
     }),

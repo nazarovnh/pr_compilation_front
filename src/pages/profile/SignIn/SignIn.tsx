@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Button, Container, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
+import { useLazySignInQuery } from '../../../features/auth/api/authApi';
 import Card from '../../../shared/card/Card';
 import PasswordInput from '../../../shared/input/password/PasswordInput';
 import EmailInput from '../../../shared/input/email/EmailInput';
@@ -11,15 +12,22 @@ import './SignIn.scss';
 
 const SignIn: React.FC = () => {
   const { t } = useTranslation('t', { keyPrefix: 'signIn' });
+  const [signIn] = useLazySignInQuery();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
+
   const isValid = () => {
     return !(errorEmail || errorPassword);
   };
+
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    signIn({ email: email, password: password.trim() })
+      .unwrap()
+      .then((response) => console.log(response));
 
     if (isValid()) {
       console.log('Email:', email);

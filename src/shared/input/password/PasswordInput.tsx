@@ -3,6 +3,7 @@ import { TextField } from '@mui/material';
 
 import './PasswordInput.scss';
 
+const MIN_LENGHT = 3;
 interface PasswordInputProps {
   className?: string;
   password: string;
@@ -20,7 +21,7 @@ const PasswordInput = ({
 }: PasswordInputProps) => {
   const [isPasswordTouched, setIsPasswordTouched] = useState(false);
   const validatePassword = (value: string) => {
-    if (value.length < 8) {
+    if (value.length < MIN_LENGHT) {
       setError('Password must be more than 8 symbols');
     } else {
       setError('');

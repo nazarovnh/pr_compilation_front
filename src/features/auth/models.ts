@@ -5,7 +5,6 @@ export interface SignInRequest {
 
 export interface SignInResponse {
   accessToken: string;
-  refreshToken: string;
 }
 
 export interface SignUpRequest {
