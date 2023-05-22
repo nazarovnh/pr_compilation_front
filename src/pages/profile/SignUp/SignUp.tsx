@@ -7,8 +7,10 @@ import Card from '../../../shared/card/Card';
 import PasswordInput from '../../../shared/input/password/PasswordInput';
 import EmailInput from '../../../shared/input/email/EmailInput';
 
+import './SignUp.scss';
+
 const SignUp = () => {
-  const { t } = useTranslation('t', { keyPrefix: 'signIn' });
+  const { t } = useTranslation('t', { keyPrefix: 'signUp' });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
@@ -51,8 +53,8 @@ const SignUp = () => {
             >
               <span>{t('button.submit')}</span>
             </Button>
-            <Link className="form-container__link" href="/signup" variant="body2">
-              {t('helpText.notRegister')}
+            <Link className="form-container__link" href="/signin" variant="body2">
+              {t('helpText.register')}
             </Link>
           </form>
         </Container>

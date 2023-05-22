@@ -1,0 +1,22 @@
+.signup {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .signup_card {
+    padding: 3% 0;
+    min-width: 282px;
+    margin: 0 auto;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    max-width: 564px;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
