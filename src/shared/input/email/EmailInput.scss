@@ -1,0 +1,5 @@
+@use '../../../app/style/fonts';
+
+.email-input {
+    @include fonts.font-regular-size16-line24
+}

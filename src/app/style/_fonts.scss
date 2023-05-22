@@ -1,0 +1,42 @@
+@use 'common';
+
+$small-ratio: 0.625;
+$hd-ratio: 0.75;
+$middle-ratio: 0.875;
+$full-hd-ratio: 1;
+$two-k-ratio: 1.2;
+
+@mixin font-size($target) {
+  font-size: $target;
+
+  @media (max-width: common.$hd-w) {
+    font-size: $target * $small-ratio;
+  }
+
+  @media (min-width: common.$hd-w) {
+    font-size: $target * $hd-ratio;
+  }
+
+  @media (min-width: common.$middle-w) {
+    font-size: $target * $middle-ratio;
+  }
+
+  @media (min-width: common.$full-hd-w) {
+    font-size: $target * $full-hd-ratio;
+  }
+
+  @media (min-width: common.$two-k-w) {
+    font-size: $target * $two-k-ratio;
+  }
+}
+
+@mixin font-regular-size16-line24 {
+  @include font-size(16px);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  /* or 150% */
+  letter-spacing: 0.15px;
+}

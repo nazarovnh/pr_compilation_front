@@ -1,0 +1,46 @@
+.signin {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  
+  .signin_card {
+    padding: 3% 0;
+    min-width: 282px;
+    margin: 0 auto;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    max-width: 564px;
+  }
+
+  .form-container__email-input {
+    margin-top: 10%;
+  }
+
+  .form-container__password-input {
+    margin-top: 8%;
+  }
+
+  .form-container__button {
+    margin-top: 10%;
+  }
+
+  .form-container__link{
+    text-align: center;
+  }
+
+  &button {
+    color: red;
+  }
+}
+
+.main-container {
+  color: var(--main-background-color);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}

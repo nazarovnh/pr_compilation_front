@@ -1,0 +1,32 @@
+{
+    "t": {
+        "subjects": {
+            "title": "Ваши дисциплины",
+            "hours": "часов",
+            "defaultLanguage": "C++, Python, Java",
+            "footer-title": "Перейти к темам"
+        },
+        "signIn": {
+            "header": {
+                "title": "Вход"
+            },
+            "button": {
+                "submit": "Войти"
+            },
+            "helpText": {
+                "notRegister": "У вас нет аккаунта? Зарегистрируйтесь."
+            }
+        },
+        "signUp": {
+            "header": {
+                "title": "Регистрация"
+            },
+            "button": {
+                "submit": "Зарегистрироваться"
+            },
+            "helpText": {
+                "register": "У вас есть аккаунта? Войти."
+            }
+        }
+    }
+}  
