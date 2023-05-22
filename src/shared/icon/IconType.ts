@@ -12,5 +12,5 @@ type IconMap = {
 
 /* eslint-disable prettier/prettier */
   export const icons = new Map<IconType, IconMap>([
-    [IconType.Vector, { source: Vector, width: '24px', height: '24px' }],
+    [IconType.Vector, { source: Vector, width: '45px', height: '45px' }],
 ]);  

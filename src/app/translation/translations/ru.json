@@ -2,7 +2,9 @@
     "t": {
         "subjects": {
             "title": "Ваши дисциплины",
-            "defaultLanguage": "C++, Python, Java"
+            "hours": "часов",
+            "defaultLanguage": "C++, Python, Java",
+            "footer-title": "Перейти к темам"
         },
         "signIn": {
             "header": {

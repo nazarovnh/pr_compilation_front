@@ -32,6 +32,16 @@
   align-items: center;
 }
 
+.subject-info__footer-title{
+  margin-right: 5%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+
+  /* identical to box height, or 30px */
+  letter-spacing: 0.15px;
+}
+
 .subject-info__languages {
   margin-left: 3%;
 }
