@@ -13,7 +13,7 @@ const Subjects = () => {
   const renderSubject = () => {
     return subjects?.map((subject: Subject) => {
       return (
-        <Card key={subject.subjectId}>
+        <Card className="subject-card" key={subject.subjectId}>
           <SubjectInfo
             subjectTitle={subject.subjectTitle}
             subjectDescription={subject.subjectDescription}
