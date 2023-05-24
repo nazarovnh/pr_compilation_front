@@ -6,6 +6,9 @@ const routes = {
     signUp: 'signUp',
     signIn: 'signIn',
   },
+  task: {
+    task: 'task',
+  },
   wildcard: '*',
   id: ':id',
 };

@@ -9,13 +9,18 @@ import SignUp from '../pages/profile/SignUp/SignUp';
 import PrivateLayout from '../pages/layouts/PrivateLayout';
 import './translation/translation';
 import Subjects from '../pages/subjects/Subjects';
+import Task from '../pages/task/Task';
+import MainLayout from '../pages/layouts/main/MainLayout';
 
 const App = (): JSX.Element => {
   return (
     <Provider store={store}>
       <Routes>
         <Route element={<PrivateLayout />}>
-          <Route path={routes.root.index} element={<Subjects />} />
+          <Route element={<MainLayout />}>
+            <Route path={routes.root.index} element={<Subjects />} />
+            <Route path={routes.task.task} element={<Task />} />
+          </Route>
         </Route>
 
         <Route element={<NotAuthorizedLayout />}>

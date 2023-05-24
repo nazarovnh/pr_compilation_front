@@ -17,3 +17,9 @@ if (ApplicationType.STAGING === type) {
   server = production;
 }
 export const serverAddress = server;
+
+export enum Language {
+  PYTHON = 'python',
+  CPP = 'cpp',
+  JAVA = 'java',
+}

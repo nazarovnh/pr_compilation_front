@@ -16,6 +16,15 @@ export const createHeaders = (): Headers => {
   return headers;
 };
 
+export const createHeadersMultipart = (): Headers => {
+  const headers: Headers = new Headers();
+
+  headers.set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+  headers.set('Content-Type', 'multipart/form-data');
+
+  return headers;
+};
+
 // TODO(Nariman): Replace it when add cookies and think about another entrypoint for handle error
 /**
  * Log a warning and show a toast!
