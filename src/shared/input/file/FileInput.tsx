@@ -3,7 +3,14 @@ import { Button, TextField } from '@mui/material';
 import { useExecuteMutation } from '../../../features/task/api/taskApi';
 import { Language } from '../../../app/constants';
 
-const FileInput = () => {
+import './FileInput.scss';
+
+interface FileInputProps {
+  topicId?: string;
+  taskId?: string;
+}
+
+const FileInput: React.FC<FileInputProps> = ({ topicId, taskId }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [executeCode] = useExecuteMutation();
   const handleFileChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -14,8 +21,8 @@ const FileInput = () => {
     console.log(selectedFile);
     if (selectedFile) {
       executeCode({
-        topicId: 'ed6bd2d6-941c-4497-922d-ce68fadd98f5',
-        taskId: '643ed0d2-9630-11ec-b909-0242ac120002',
+        topicId: topicId,
+        taskId: taskId,
         sourceCode: selectedFile,
         language: Language.CPP,
       })
@@ -31,8 +38,14 @@ const FileInput = () => {
     }
   };
   return (
-    <div>
-      <TextField type="file" onChange={handleFileChange} variant="outlined" />
+    <div className="file-upload">
+      <TextField
+        InputProps={{ disableUnderline: true }}
+        className="file-load"
+        type="file"
+        onChange={handleFileChange}
+        variant="standard"
+      />
       <Button
         onClick={handleExecute}
         variant="contained"

@@ -3,11 +3,17 @@ import rootReducer from './rootReducer';
 import { authMiddleware } from '../auth/api/authApi';
 import { subjectApiMiddleware } from '../subject/api/subjectApi';
 import { taskApiMiddleware } from '../task/api/taskApi';
+import { rtkQueryErrorLogger } from '../hook';
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(authMiddleware, subjectApiMiddleware, taskApiMiddleware);
+    return getDefaultMiddleware().concat(
+      authMiddleware,
+      subjectApiMiddleware,
+      taskApiMiddleware,
+      rtkQueryErrorLogger
+    );
   },
 });
 

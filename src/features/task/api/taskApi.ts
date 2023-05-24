@@ -7,7 +7,6 @@ export const TASK_API = 'TASK_API';
 const createFormData = (sourceCode: File) => {
   const formData = new FormData();
   formData.append('sourceCode', sourceCode);
-  // formData.append('language', 'cpp');
   return formData;
 };
 
@@ -21,11 +20,10 @@ const taskApi = createApi({
       query: (request) => ({
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-          // 'Content-Type': `multipart/form-data`,
         },
         method: 'POST',
         body: createFormData(request.sourceCode),
-        url: `compile/topic/${request.topicId}/task/${request.taskId}/execute/cpp`,
+        url: `compile/topic/${request.topicId}/task/${request.taskId}/execute/${request.language}`,
       }),
     }),
   }),

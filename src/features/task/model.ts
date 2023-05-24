@@ -8,8 +8,8 @@ export interface ExecuteResponse {
 }
 
 export interface ExecuteRequest {
-  topicId: string;
-  taskId: string;
+  topicId?: string;
+  taskId?: string;
   sourceCode: File;
   language: Language;
 }

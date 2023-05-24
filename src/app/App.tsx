@@ -17,9 +17,12 @@ const App = (): JSX.Element => {
     <Provider store={store}>
       <Routes>
         <Route element={<PrivateLayout />}>
-          <Route element={<MainLayout />}>
-            <Route path={routes.root.index} element={<Subjects />} />
-            <Route path={routes.task.task} element={<Task />} />
+          <Route path={routes.root.index} element={<MainLayout />}>
+            <Route path={routes.root.subject} element={<Subjects />} />
+            <Route
+              path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
+              element={<Task />}
+            />
           </Route>
         </Route>
 

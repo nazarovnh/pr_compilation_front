@@ -4,10 +4,11 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 
 import './Task.scss';
 import FileInput from '../../shared/input/file/FileInput';
+import { useParams } from 'react-router-dom';
 
 const Task = () => {
   const [code, setCode] = React.useState(`function add(a, b) {\n  return a + b;\n}`);
-  console.log(code);
+  const { topicId, taskId } = useParams();
   return (
     <div className="task">
       <h2>{'Задание 1'}</h2>
@@ -31,7 +32,20 @@ const Task = () => {
               </p>
             </section>
             <section className="task-info__section">
-              <div className="task-info__file-picker" />
+              <h1 className="task-info__section-title">Пример выходных данных</h1>
+              <p className="task-info__section-text">
+                Пример входных данных на столько строк сколько нужно, пусть всё ползёт вниз
+              </p>
+            </section>
+            <section className="task-info__section task-info__limit">
+              <div className="task-info__memory-limit">
+                <h5>Ограничение памяти</h5>
+                <p>10мб</p>
+              </div>
+              <div className="task-info__time-limit">
+                <h5>Ограничение времени выполнения</h5>
+                <p>15с</p>
+              </div>
             </section>
           </article>
           <div className="task__code-editor-wrapper">
@@ -53,7 +67,7 @@ const Task = () => {
           </div>
         </div>
         <div className="task task__loader">
-          <FileInput />
+          <FileInput topicId={topicId} taskId={taskId} />
         </div>
       </div>
     </div>
