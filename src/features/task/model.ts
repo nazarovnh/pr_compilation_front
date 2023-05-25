@@ -18,3 +18,17 @@ export interface CodeRequest {
   language: string;
   sourceCode: File;
 }
+
+export interface GetTaskRequest {
+  topicId: string;
+  taskId: string;
+}
+
+export interface GetTaskResponse {
+  taskTitle: string;
+  taskDescription: string;
+  timeLimit: number;
+  memoryLimit: number;
+  exampleInput: string;
+  exampleCorrectOutput: string;
+}

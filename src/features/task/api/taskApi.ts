@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { serverAddress } from '../../../app/constants';
-import { ExecuteRequest, ExecuteResponse } from '../model';
+import { ExecuteRequest, ExecuteResponse, GetTaskRequest, GetTaskResponse } from '../model';
+import { createHeaders } from '../../hook';
 
 export const TASK_API = 'TASK_API';
 
@@ -26,10 +27,17 @@ const taskApi = createApi({
         url: `compile/topic/${request.topicId}/task/${request.taskId}/execute/${request.language}`,
       }),
     }),
+    getTask: builder.query<GetTaskResponse, GetTaskRequest>({
+      query: (request) => ({
+        headers: createHeaders(),
+        method: 'GET',
+        url: `/task/topic/${request.topicId}/task/${request.taskId}`,
+      }),
+    }),
   }),
 });
 
-export const { useExecuteMutation } = taskApi;
+export const { useExecuteMutation, useGetTaskQuery } = taskApi;
 
 export const taskApiMiddleware = taskApi.middleware;
 

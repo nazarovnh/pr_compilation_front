@@ -4,11 +4,23 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 
 import './Task.scss';
 import FileInput from '../../shared/input/file/FileInput';
-import { useParams } from 'react-router-dom';
+import { useGetTaskQuery } from '../../features/task/api/taskApi';
 
-const Task = () => {
+interface TaskProps {
+  topicId: string;
+  taskId: string;
+}
+
+const Task: React.FC<TaskProps> = ({
+  topicId = 'ed6bd2d6-941c-4497-922d-ce68fadd98f5',
+  taskId = '643ed0d2-9630-11ec-b909-0242ac120002',
+}) => {
+  const { data: taskInfo } = useGetTaskQuery({
+    topicId,
+    taskId,
+  });
   const [code, setCode] = React.useState(`function add(a, b) {\n  return a + b;\n}`);
-  const { topicId, taskId } = useParams();
+  console.log(taskInfo);
   return (
     <div className="task">
       <h2>{'Задание 1'}</h2>
@@ -18,12 +30,7 @@ const Task = () => {
             {/* <BackButton text={`Задание ${1}`} /> */}
             <section className="task-info__section">
               <h1 className="task-info__section-title">Условие задачи</h1>
-              <p className="task-info__section-text">
-                Какое то описание курса, оно нужно, иначе ниче на странице не будет и будет только
-                пустота в груди и перепутаны пути и закрыты все двери. Сердце воет пусть, но если
-                завтра я проснусь значит Бог в меня веерит! (песня: Дарья Видардо — Бог в меня
-                верит)
-              </p>
+              <p className="task-info__section-text">{taskInfo?.taskTitle}</p>
             </section>
             <section className="task-info__section">
               <h1 className="task-info__section-title">Пример входных данных</h1>
