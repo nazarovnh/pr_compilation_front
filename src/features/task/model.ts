@@ -20,7 +20,6 @@ export interface CodeRequest {
 }
 
 export interface GetTaskRequest {
-  topicId: string;
   taskId: string;
 }
 

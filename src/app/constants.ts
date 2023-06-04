@@ -6,7 +6,7 @@ export enum ApplicationType {
 
 export const type = import.meta.env.VITE_TYPE as ApplicationType;
 
-const local = 'http://localhost:8080';
+const local = 'http://localhost/api';
 const staging = '//pr.compilation.com';
 const production = '//pr.compilation.com';
 

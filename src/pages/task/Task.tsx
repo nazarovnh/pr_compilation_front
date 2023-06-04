@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
 import './Task.scss';
 import FileInput from '../../shared/input/file/FileInput';
-import { useGetTaskQuery } from '../../features/task/api/taskApi';
+import { useLazyGetTaskQuery } from '../../features/task/api/taskApi';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { GetTaskResponse } from '../../features/task/model';
 
-interface TaskProps {
-  topicId: string;
-  taskId: string;
-}
-
-const Task: React.FC<TaskProps> = ({
-  topicId = 'ed6bd2d6-941c-4497-922d-ce68fadd98f5',
-  taskId = '643ed0d2-9630-11ec-b909-0242ac120002',
-}) => {
-  const { data: taskInfo } = useGetTaskQuery({
-    topicId,
-    taskId,
-  });
-  const [code, setCode] = React.useState(`function add(a, b) {\n  return a + b;\n}`);
+const Task = () => {
+  const { topicId, taskId } = useParams();
+  const [getTaskQuery] = useLazyGetTaskQuery();
+  const [taskInfo, setTaskInfo] = useState<GetTaskResponse | undefined>(undefined);
+  const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`);
   console.log(taskInfo);
+
+  useEffect(() => {
+    if (taskId && !taskInfo) {
+      getTaskQuery({ taskId })
+        .unwrap()
+        .then((response) => setTaskInfo(response));
+    }
+  }, [taskId]);
+
   return (
     <div className="task">
       <h2>{'Задание 1'}</h2>

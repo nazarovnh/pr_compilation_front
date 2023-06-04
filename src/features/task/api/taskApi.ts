@@ -31,13 +31,13 @@ const taskApi = createApi({
       query: (request) => ({
         headers: createHeaders(),
         method: 'GET',
-        url: `/task/topic/${request.topicId}/task/${request.taskId}`,
+        url: `/task/${request.taskId}`,
       }),
     }),
   }),
 });
 
-export const { useExecuteMutation, useGetTaskQuery } = taskApi;
+export const { useExecuteMutation, useLazyGetTaskQuery } = taskApi;
 
 export const taskApiMiddleware = taskApi.middleware;
 

@@ -26,7 +26,7 @@ const Subjects = () => {
 
   return (
     <div className="subjects-page">
-      <h2>{t('title')}</h2>
+      <h2 className="subjects-page__title">{t('title')}</h2>
       <div className="subjects-page__list-subject">{renderSubject()}</div>
     </div>
   );
