@@ -26,6 +26,7 @@ export interface GetTaskRequest {
 export interface GetTaskResponse {
   taskTitle: string;
   taskDescription: string;
+  taskOrder: number;
   timeLimit: number;
   memoryLimit: number;
   exampleInput: string;

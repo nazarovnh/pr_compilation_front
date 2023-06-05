@@ -30,8 +30,8 @@ const SignIn: React.FC = () => {
 
     signIn({ email: email, password: password.trim() })
       .unwrap()
-      .then((response) => {
-        localStorage.setItem('accessToken', response.accessToken);
+      .then(() => {
+        // localStorage.setItem('accessToken', response.accessToken);
         dispatch(changeIsAuth(true));
       });
   };

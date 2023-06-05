@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
-import { SignInResponse, SignInRequest, SignUpRequest } from '../models';
+import { SignInResponse, SignInRequest, SignUpRequest, WhoIamResponse } from '../models';
 import { serverAddress } from '../../../app/constants';
 
 export const AUTH_API = 'AUTH_API';
@@ -28,10 +28,16 @@ const authApi = createApi({
         },
       }),
     }),
+    whoami: builder.query<WhoIamResponse, void>({
+      query: () => ({
+        method: 'GET',
+        url: '/whoiam',
+      }),
+    }),
   }),
 });
 
-export const { useLazySignInQuery, useLazySignUpQuery } = authApi;
+export const { useWhoamiQuery, useLazySignInQuery, useLazySignUpQuery } = authApi;
 
 export const authMiddleware = authApi.middleware;
 

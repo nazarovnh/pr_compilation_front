@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { serverAddress } from '../../../app/constants';
-import { createHeaders } from '../../hook';
+import { createHeaders } from '../../hooks';
 import { Subject } from '../model';
 
 export const SUBJECT_API = 'SUBJECT_API';

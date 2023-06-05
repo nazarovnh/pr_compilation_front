@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { serverAddress } from '../../../app/constants';
 import { ExecuteRequest, ExecuteResponse, GetTaskRequest, GetTaskResponse } from '../model';
-import { createHeaders } from '../../hook';
+import { createHeaders } from '../../hooks';
 
 export const TASK_API = 'TASK_API';
 
