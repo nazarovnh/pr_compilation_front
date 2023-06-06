@@ -14,14 +14,16 @@ import MainLayout from '../pages/layouts/main/MainLayout';
 import { useCheckAuth } from '../features/hooks';
 import { useEffect } from 'react';
 import Spinner from '../shared/spinner/Spinner';
-import { changeIsAuth } from '../features/auth/slice/authSlice';
+import { changeIsAuth, changeLoadingValidate } from '../features/auth/slice/authSlice';
+import Topic from '../pages/topic/Topic';
 
 const AppRouter = (): JSX.Element => {
   const [loading, isAuth] = useCheckAuth();
   const dispatch = useDispatch();
   useEffect(() => {
-    if (!loading) {
+    if (!loading && isAuth !== null) {
       dispatch(changeIsAuth(!!isAuth));
+      dispatch(changeLoadingValidate(false));
     }
   }, [loading, isAuth]);
 
@@ -35,15 +37,18 @@ const AppRouter = (): JSX.Element => {
       <Routes>
         <Route element={<PrivateLayout />}>
           <Route path={routes.root.index} element={<MainLayout />}>
-            <Route path={routes.root.subject} element={<Subjects />} />
+            <Route path={routes.root.index} element={<Subjects />} />
             <Route
               path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
               element={<Task />}
             />
           </Route>
+          <Route path={routes.root.index} element={<MainLayout hideHeaderBack={false} />}>
+            <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
+          </Route>
         </Route>
 
-        <Route element={<NotAuthorizedLayout />}>
+        <Route path={routes.profile.signIn} element={<NotAuthorizedLayout />}>
           <Route path={routes.profile.signUp} element={<SignUp />} />
           <Route path={routes.profile.signIn} element={<SignIn />} />
         </Route>
@@ -52,7 +57,7 @@ const AppRouter = (): JSX.Element => {
       </Routes>
     </BrowserRouter>
   );
-  return loading ? loader : router;
+  return loading || isAuth === null ? loader : router;
 };
 
 const App = (): JSX.Element => {

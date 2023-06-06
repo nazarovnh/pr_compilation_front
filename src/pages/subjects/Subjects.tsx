@@ -5,15 +5,21 @@ import Card from '../../shared/card/Card';
 import './Subjects.scss';
 import { useGetSubjectsQuery } from '../../features/subject/api/subjectApi';
 import { Subject } from '../../features/subject/model';
+import { useNavigate } from 'react-router-dom';
+import { paths } from '../../shared/routes';
 
 const Subjects = () => {
   const { t } = useTranslation('t', { keyPrefix: 'subjects' });
+  const navigate = useNavigate();
   const { data: subjects } = useGetSubjectsQuery();
-
   const renderSubject = () => {
     return subjects?.map((subject: Subject) => {
       return (
-        <Card className="subject-card" key={subject.subjectId}>
+        <Card
+          className="subject-card"
+          key={subject.subjectId}
+          onClick={() => navigate(paths.subjectId(subject.subjectId))}
+        >
           <SubjectInfo
             subjectTitle={subject.subjectTitle}
             subjectDescription={subject.subjectDescription}

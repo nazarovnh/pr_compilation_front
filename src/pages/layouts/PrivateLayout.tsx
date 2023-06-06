@@ -3,8 +3,8 @@ import { useAppSelector } from '../../features/hooks';
 
 function PrivateLayout() {
   const isAuth = useAppSelector((state) => state.AUTH.isAuth);
-  console.log(`isAuth ${document.referrer}`);
-  if (!isAuth) {
+  const loadingValidate = useAppSelector((state) => state.AUTH.loadingValidate);
+  if (!loadingValidate && !isAuth) {
     return <Navigate to="/signin" replace />;
   }
 

@@ -46,8 +46,6 @@ export const useCheckAuth = (): [boolean, boolean | null] => {
   const [isAuth, setIsAuth] = useState<boolean | null>(null);
   useEffect(() => {
     if (!loading && whoami) {
-      // dispatch(changeIsAuth(true));
-      console.log(whoami);
       setIsAuth(true);
     } else if (isError) {
       setIsAuth(false);

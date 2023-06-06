@@ -3,8 +3,9 @@ import { useAppSelector } from '../../features/hooks';
 
 function NotAuthorizedLayout() {
   const isAuth = useAppSelector((state) => state.AUTH.isAuth);
-  console.log(`isAuth ${isAuth}`);
-  if (isAuth) {
+  const loadingValidate = useAppSelector((state) => state.AUTH.loadingValidate);
+  if (!loadingValidate && isAuth) {
+    console.log(window.location.href);
     return <Navigate to="/" replace />;
   }
 

@@ -3,6 +3,7 @@ import { ReactComponent as Arrow } from './icons/arrow.svg';
 
 export enum IconType {
   Vector,
+  Arrow,
 }
 
 type IconMap = {

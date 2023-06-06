@@ -4,10 +4,12 @@ export const AUTH = 'AUTH';
 
 export interface AuthState {
   isAuth: boolean;
+  loadingValidate: boolean;
 }
 
 const initialState: AuthState = {
-  isAuth: !!localStorage.getItem('accessToken'),
+  isAuth: false,
+  loadingValidate: true,
 };
 
 const authSlice = createSlice({
@@ -17,9 +19,12 @@ const authSlice = createSlice({
     changeIsAuth: (state: AuthState, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
+    changeLoadingValidate: (state: AuthState, action: PayloadAction<boolean>) => {
+      state.loadingValidate = action.payload;
+    },
   },
 });
 
-export const { changeIsAuth } = authSlice.actions;
+export const { changeIsAuth, changeLoadingValidate } = authSlice.actions;
 
 export default authSlice.reducer;

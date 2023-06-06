@@ -14,7 +14,6 @@ const Task = () => {
   const [getTaskQuery] = useLazyGetTaskQuery();
   const [taskInfo, setTaskInfo] = useState<GetTaskResponse | undefined>(undefined);
   const [code, setCode] = useState(`function add(a, b) {\n  return a + b;\n}`);
-  console.log(taskInfo);
 
   useEffect(() => {
     if (taskId && !taskInfo) {

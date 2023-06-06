@@ -4,8 +4,6 @@ import { Container, Typography } from '@mui/material';
 import { Icon, IconType } from '../icon';
 
 import './SubjectInfo.scss';
-import { useNavigate } from 'react-router-dom';
-import routes from '../routes';
 
 interface SubjectInfoProps {
   subjectTitle: string;
@@ -22,7 +20,6 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
 }) => {
   const { t } = useTranslation('t', { keyPrefix: 'subjects' });
   const [isHovering, setIsHovering] = useState(false);
-  const navigate = useNavigate();
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -32,16 +29,11 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
     setIsHovering(false);
   };
 
-  const handleOnClick = () => {
-    navigate(routes.root.topic);
-  };
-
   return (
     <Container
       className="subject-info"
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
-      onClick={handleOnClick}
     >
       <h4 className="subject-info__title">{subjectTitle}</h4>
       <Typography className="subject-info__description" variant="body1">
