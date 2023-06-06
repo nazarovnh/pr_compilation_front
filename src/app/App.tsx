@@ -38,17 +38,17 @@ const AppRouter = (): JSX.Element => {
         <Route element={<PrivateLayout />}>
           <Route path={routes.root.index} element={<MainLayout />}>
             <Route path={routes.root.index} element={<Subjects />} />
+          </Route>
+          <Route path={routes.root.index} element={<MainLayout hideHeaderBack={false} />}>
+            <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
             <Route
               path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
               element={<Task />}
             />
           </Route>
-          <Route path={routes.root.index} element={<MainLayout hideHeaderBack={false} />}>
-            <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
-          </Route>
         </Route>
 
-        <Route path={routes.profile.signIn} element={<NotAuthorizedLayout />}>
+        <Route element={<NotAuthorizedLayout />}>
           <Route path={routes.profile.signUp} element={<SignUp />} />
           <Route path={routes.profile.signIn} element={<SignIn />} />
         </Route>

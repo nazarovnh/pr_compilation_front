@@ -3,10 +3,6 @@
   gap: 24px;
 }
 
-.task-info__task-sidetask-side {
-  max-width: 45%;
-}
-
 .task__code-editor-wrapper {
   flex-grow: 1;
   display: flex;
@@ -41,5 +37,19 @@
 }
 
 .task-info__limit {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.task-info__task-side {
+  max-width: 45%;
+  margin-top: 3.4%;
+}
+
+.task-info__section {
+  margin-top: 6%;
+
+  &:first-child {
+    margin: 0;
+  }
 }

@@ -8,6 +8,8 @@ import { useLazyGetTaskQuery } from '../../features/task/api/taskApi';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { GetTaskResponse } from '../../features/task/model';
+import { Typography } from '@mui/material';
+import ExampleCard, { ExampleCardType } from '../../shared/card/example/ExampleCard';
 
 const Task = () => {
   const { topicId, taskId } = useParams();
@@ -21,27 +23,31 @@ const Task = () => {
         .unwrap()
         .then((response) => setTaskInfo(response));
     }
-  }, [taskId]);
+  }, [taskId, taskInfo]);
 
   return (
     <div className="task">
-      <h2>{`Задание ${taskInfo?.taskOrder}`}</h2>
-      <h2>{taskInfo?.taskTitle}</h2>
+      <Typography variant="h2">{`Задание ${taskInfo?.taskOrder}`}</Typography>
       <div>
         <div className="task_task-info task-info">
-          <article className="task-info__task-sidetask-side task-sidetask-side">
-            {/* <BackButton text={`Задание ${1}`} /> */}
+          <article className="task-info__task-side task-side">
             <section className="task-info__section">
               <h1 className="task-info__section-title">Условие задачи</h1>
               <p className="task-info__section-text">{taskInfo?.taskDescription}</p>
             </section>
             <section className="task-info__section">
               <h1 className="task-info__section-title">Пример входных данных</h1>
-              <p className="task-info__section-text">{taskInfo?.exampleInput}</p>
+              <ExampleCard
+                example={taskInfo?.exampleInput}
+                type={ExampleCardType.INPUT}
+              ></ExampleCard>
             </section>
             <section className="task-info__section">
               <h1 className="task-info__section-title">Пример выходных данных</h1>
-              <p className="task-info__section-text">{taskInfo?.exampleCorrectOutput}</p>
+              <ExampleCard
+                example={taskInfo?.exampleCorrectOutput}
+                type={ExampleCardType.OUTPUT}
+              ></ExampleCard>
             </section>
             <section className="task-info__section task-info__limit">
               <div className="task-info__memory-limit">

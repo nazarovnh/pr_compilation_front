@@ -5,7 +5,6 @@ function NotAuthorizedLayout() {
   const isAuth = useAppSelector((state) => state.AUTH.isAuth);
   const loadingValidate = useAppSelector((state) => state.AUTH.loadingValidate);
   if (!loadingValidate && isAuth) {
-    console.log(window.location.href);
     return <Navigate to="/" replace />;
   }
 

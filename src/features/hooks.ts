@@ -51,6 +51,5 @@ export const useCheckAuth = (): [boolean, boolean | null] => {
       setIsAuth(false);
     }
   }, [whoami, isError, loading]);
-  console.log(isAuth);
   return [!!loading, isAuth];
 };
