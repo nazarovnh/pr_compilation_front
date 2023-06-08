@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { Icon, IconType } from '../icon';
 
 import './SubjectInfo.scss';
@@ -28,8 +28,13 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
   const handleMouseOut = () => {
     setIsHovering(false);
   };
+
   return (
-    <div className="subject-info" onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOut}>
+    <Container
+      className="subject-info"
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseOut}
+    >
       <h4 className="subject-info__title">{subjectTitle}</h4>
       <Typography className="subject-info__description" variant="body1">
         {subjectDescription}
@@ -44,7 +49,7 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
         {isHovering ? <p className="subject-info__footer-title">{t('footer-title')}</p> : null}
         <Icon icon={IconType.Vector}></Icon>
       </div>
-    </div>
+    </Container>
   );
 };
 

@@ -1,13 +1,13 @@
 @use '../../app/style/color';
 
-.subjects-page {
-  padding: 4% 5% 0;
-}
-
 .subjects-page__list-subject {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2%;
+}
+
+.subjects-page__title{
+  margin-bottom: 2%;
 }
 
 .subject-card {

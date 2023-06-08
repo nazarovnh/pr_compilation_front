@@ -1,0 +1,55 @@
+.task-info {
+  display: flex;
+  gap: 24px;
+}
+
+.task__code-editor-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.task-info__section-title {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 123.5%;
+  letter-spacing: 0.25px;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+.task-info__section-text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  color: #000;
+  margin: 0;
+}
+
+.task-info__send-btn {
+  align-self: flex-end;
+}
+
+.task-info__limit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.task-info__task-side {
+  max-width: 45%;
+  margin-top: 3.4%;
+}
+
+.task-info__section {
+  margin-top: 6%;
+
+  &:first-child {
+    margin: 0;
+  }
+}

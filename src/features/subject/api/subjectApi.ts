@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { serverAddress } from '../../../app/constants';
-import { createHeaders } from '../../hook';
 import { Subject } from '../model';
 
 export const SUBJECT_API = 'SUBJECT_API';
@@ -13,7 +12,6 @@ const subjectApi = createApi({
   endpoints: (builder) => ({
     getSubjects: builder.query<Subject[], void>({
       query: () => ({
-        headers: createHeaders(),
         method: 'GET',
         url: 'subjects/',
       }),

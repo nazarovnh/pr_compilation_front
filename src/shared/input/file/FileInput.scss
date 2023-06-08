@@ -1,0 +1,35 @@
+@use '../../../app/style/color';
+
+.file-upload {
+  display: flex;
+  margin-top: 3%;
+  justify-content: flex-end;
+}
+
+.file-upload__input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fill-available;
+  margin-right: 5%;
+}
+
+.file-upload__icon {
+  margin-right: 20px;
+}
+
+.file-load > div > input {
+  display: none;
+}
+
+.file-upload__input-loaded {
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  width: 15%;
+  padding: 12px 0;
+}
+
+.file-upload__button {
+  width: fill-available;
+}
