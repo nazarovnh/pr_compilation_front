@@ -46,8 +46,12 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
         </Typography>
       </div>
       <div className="subject-info__footer">
-        {isHovering ? <p className="subject-info__footer-title">{t('footer-title')}</p> : null}
-        <Icon icon={IconType.Vector}></Icon>
+        {isHovering ? (
+          <>
+            <p className="subject-info__footer-title">{t('footer-title')}</p>
+            <Icon icon={IconType.Vector}></Icon>
+          </>
+        ) : null}
       </div>
     </Container>
   );
