@@ -6,6 +6,9 @@
             "defaultLanguage": "C++, Python, Java",
             "footer-title": "Перейти к темам"
         },
+        "topic": {
+            "title": "Темы"
+        },
         "file-input": {
             "input-button": "Прикрепить файл",
             "load-text": "Отправить код на проверку"

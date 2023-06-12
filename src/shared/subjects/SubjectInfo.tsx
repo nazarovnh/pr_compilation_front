@@ -10,6 +10,7 @@ interface SubjectInfoProps {
   subjectDescription: string;
   numberHours: number;
   language?: string;
+  isShowArrow?: boolean;
 }
 
 const SubjectInfo: React.FC<SubjectInfoProps> = ({
@@ -17,6 +18,7 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
   subjectDescription,
   numberHours,
   language = undefined,
+  isShowArrow = true,
 }) => {
   const { t } = useTranslation('t', { keyPrefix: 'subjects' });
   const [isHovering, setIsHovering] = useState(false);
@@ -34,6 +36,7 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
       className="subject-info"
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
+      disableGutters={true}
     >
       <h4 className="subject-info__title">{subjectTitle}</h4>
       <Typography className="subject-info__description" variant="body1">
@@ -46,12 +49,10 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
         </Typography>
       </div>
       <div className="subject-info__footer">
-        {isHovering ? (
-          <>
-            <p className="subject-info__footer-title">{t('footer-title')}</p>
-            <Icon icon={IconType.Vector}></Icon>
-          </>
-        ) : null}
+        <>
+          {isHovering ? <p className="subject-info__footer-title">{t('footer-title')}</p> : null}
+          {isShowArrow ? <Icon icon={IconType.Vector}></Icon> : null}
+        </>
       </div>
     </Container>
   );

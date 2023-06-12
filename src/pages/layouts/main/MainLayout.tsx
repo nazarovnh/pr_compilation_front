@@ -1,20 +1,33 @@
-import { Outlet, useNavigate } from 'react-router-dom';
+// import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import './MainLayout.scss';
-import { Icon, IconType } from '../../../shared/icon';
+// import { Icon, IconType } from '../../../shared/icon';
+// import { GlobalContext } from '../../../features/context/GlobalContext';
+// import { useContext, useState } from 'react';
+import Header from '../../../shared/header/Header';
 
+// title={t('subjects.title')}
+// title={t('topic.title')}
+// const routeTitles = {
+//   '/': 'Home',
+//   '/about': 'About',
+//   '/products': 'Products',
+//   '/contact': 'Contact',
+// };
 interface MainLayoutProps {
   hideHeaderBack?: boolean;
+  title?: string | null;
+  children: React.ReactNode;
 }
-const MainLayout = ({ hideHeaderBack = true }: MainLayoutProps): JSX.Element => {
-  const navigate = useNavigate();
+
+const MainLayout = ({
+  hideHeaderBack = true,
+  title = '',
+  children,
+}: MainLayoutProps): JSX.Element => {
   return (
     <div className="main-layout">
-      {hideHeaderBack ? null : (
-        <button className="main-layout__back" onClick={() => navigate(-1)}>
-          <Icon icon={IconType.Arrow}></Icon>
-        </button>
-      )}
-      <Outlet />
+      <Header hideHeaderBack={hideHeaderBack} title={title} />
+      <article className="main-layout__content">{children}</article>
     </div>
   );
 };

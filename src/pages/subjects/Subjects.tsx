@@ -7,6 +7,7 @@ import { useGetSubjectsQuery } from '../../features/subject/api/subjectApi';
 import { Subject } from '../../features/subject/model';
 import { useNavigate } from 'react-router-dom';
 import { paths } from '../../shared/routes';
+import MainLayout from '../layouts/main/MainLayout';
 
 const Subjects = () => {
   const { t } = useTranslation('t', { keyPrefix: 'subjects' });
@@ -31,10 +32,11 @@ const Subjects = () => {
   };
 
   return (
-    <div className="subjects-page">
-      <h2 className="subjects-page__title">{t('title')}</h2>
-      <div className="subjects-page__list-subject">{renderSubject()}</div>
-    </div>
+    <MainLayout title={t('title')}>
+      <div className="subjects-page">
+        <div className="subjects-page__list-subject">{renderSubject()}</div>
+      </div>
+    </MainLayout>
   );
 };
 

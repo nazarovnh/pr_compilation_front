@@ -1,17 +1,21 @@
 @use '../../app/style/color';
 
+.subjects-page {
+  margin-top: 3.5%;
+}
+
 .subjects-page__list-subject {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2%;
 }
 
-.subjects-page__title{
+.subjects-page__title {
   margin-bottom: 2%;
 }
 
 .subject-card {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 
   &:hover {
     border: 1px solid var(--black);

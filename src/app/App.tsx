@@ -10,7 +10,6 @@ import PrivateLayout from '../pages/layouts/PrivateLayout';
 import './translation/translation';
 import Subjects from '../pages/subjects/Subjects';
 import Task from '../pages/task/Task';
-import MainLayout from '../pages/layouts/main/MainLayout';
 import { useCheckAuth } from '../features/hooks';
 import { useEffect } from 'react';
 import Spinner from '../shared/spinner/Spinner';
@@ -36,16 +35,12 @@ const AppRouter = (): JSX.Element => {
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateLayout />}>
-          <Route path={routes.root.index} element={<MainLayout />}>
-            <Route path={routes.root.index} element={<Subjects />} />
-          </Route>
-          <Route path={routes.root.index} element={<MainLayout hideHeaderBack={false} />}>
-            <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
-            <Route
-              path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
-              element={<Task />}
-            />
-          </Route>
+          <Route path={routes.root.index} element={<Subjects />} />
+          <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
+          <Route
+            path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
+            element={<Task />}
+          />
         </Route>
 
         <Route element={<NotAuthorizedLayout />}>

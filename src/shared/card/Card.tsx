@@ -23,6 +23,7 @@ const Card: React.FC<CardProps> = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
+      disableGutters={true}
     >
       {children}
     </Container>
