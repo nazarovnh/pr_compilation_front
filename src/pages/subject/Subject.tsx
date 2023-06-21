@@ -7,7 +7,7 @@ import { Stack } from '@mui/material';
 
 import './Subject.scss';
 import Card from '../../shared/card/Card';
-import SubjectInfo from '../../shared/subjects/SubjectInfo';
+import CardInfo from '../../shared/card/info/CardInfo';
 import { TopicSubjectGetResponse } from '../../features/subject/model';
 import Dot from '../../shared/dot/Dot';
 
@@ -16,19 +16,19 @@ const Subject = () => {
   const { subjectId } = useParams();
   const [getSubjects, subject] = useLazyGetSubjectQuery();
 
-  const getThemeWord = (number: number | undefined) => {
+  const getThemeWord = (number: number | undefined, entity: string) => {
     if (!number) return '';
     const lastDigit = number % 10;
     const lastTwoDigits = number % 100;
 
     if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
-      return t('topics.first_option');
+      return t(`${entity}.first_option`);
     } else if (lastDigit === 1) {
-      return t('topics.second_option');
+      return t(`${entity}.second_option`);
     } else if (lastDigit >= 2 && lastDigit <= 4) {
-      return t('topics.third_option');
+      return t(`${entity}.third_option`);
     } else {
-      return t('topics.first_option');
+      return t(`${entity}.first_option`);
     }
   };
 
@@ -45,11 +45,15 @@ const Subject = () => {
           key={topic.topicId}
           // onClick={() => navigate(paths.subjectId(subject.subjectId))}
         >
-          <SubjectInfo
-            subjectTitle={topic.topicTitle}
-            subjectDescription={''}
-            numberHours={topic.numbersTasks}
-          ></SubjectInfo>
+          <CardInfo
+            className="card-info__topic"
+            title={topic.topicTitle}
+            description={''}
+            items={`${topic.numbersTasks} ${getThemeWord(topic.numbersTasks, 'tasks')}`}
+            sx="flex"
+            isShowHoveringText={false}
+            hints={`${topic.completelyTasks} выполнено`}
+          ></CardInfo>
         </Card>
       );
     });
@@ -66,7 +70,7 @@ const Subject = () => {
         <p className="subject-content__description">{subject.data?.subjectDescription}</p>
         <Stack direction="row" className="subject-content__tasks-info">
           <h5 className="subject-content__number-tasks">
-            {`${subject.data?.numberTasks} ${getThemeWord(subject.data?.numberTasks)}`}
+            {`${subject.data?.numberTasks} ${getThemeWord(subject.data?.numberTasks, 'topics')}`}
           </h5>
           <Dot></Dot>
           <h5>{getLanguage()}</h5>

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import SubjectInfo from '../../shared/subjects/SubjectInfo';
+import CardInfo from '../../shared/card/info/CardInfo';
 import Card from '../../shared/card/Card';
 
 import './Subjects.scss';
@@ -21,11 +21,13 @@ const Subjects = () => {
           key={subject.subjectId}
           onClick={() => navigate(paths.subjectId(subject.subjectId))}
         >
-          <SubjectInfo
-            subjectTitle={subject.subjectTitle}
-            subjectDescription={subject.subjectDescription}
-            numberHours={subject.numberHours}
-          ></SubjectInfo>
+          <CardInfo
+            className="card-info_subject"
+            title={subject.subjectTitle}
+            description={subject.subjectDescription}
+            items={`${subject.numberHours} ${t('hours')}`}
+            hints={subject.language ?? t('defaultLanguage')}
+          ></CardInfo>
         </Card>
       );
     });

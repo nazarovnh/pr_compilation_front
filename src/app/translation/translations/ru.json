@@ -12,6 +12,11 @@
                 "second_option": "тема",
                 "third_option": "темы"
             },
+            "tasks": {
+                "first_option": "заданий",
+                "second_option": "задание",
+                "third_option": "задания"
+            },
             "language": {
                 "any": "нет ограничений по ЯП"
             }

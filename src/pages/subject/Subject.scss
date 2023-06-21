@@ -1,3 +1,16 @@
+.topic-card {
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid var(--black);
+  }
+}
+
+.topic-card:last-child{
+  margin-bottom: 0;
+}
+
 .subject-content {
   width: 58%;
 }
@@ -12,5 +25,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 32px;
 }
-

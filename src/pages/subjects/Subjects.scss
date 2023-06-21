@@ -21,3 +21,13 @@
     border: 1px solid var(--black);
   }
 }
+
+.card-info_subject {
+  .card-info__title {
+    height: 2.6em;
+  }
+
+  .card-info__footer {
+    height: 5em;
+  }
+}

@@ -1,39 +1,36 @@
-.subject-info {
-  padding: 0 4.5%;
+.card-info {
+  padding: 2% 4.5%;
+  display: flex;
 }
 
-.subject-info__title {
-  margin-top: 30px;
-  height: 2.6em;
+.card-info__title {
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.subject-info__description {
+.card-info__description {
   margin-top: 16px;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  height: 7.6em;
   overflow: hidden;
   word-break: break-word;
 }
 
-.subject-info__tasks-info {
+.card-info__items {
   display: flex;
   margin-top: 1%;
   align-items: center;
 }
 
-.subject-info__footer {
-  height: 5em;
+.card-info__footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.subject-info__footer-title{
+.card-info__footer-title{
   margin-right: 5%;
   font-weight: 400;
   font-size: 20px;
@@ -43,6 +40,15 @@
   letter-spacing: 0.15px;
 }
 
-.subject-info__languages {
-  margin-left: 3%;
+.card-info__topic {
+  display: flex;
+  justify-content: space-between;
+
+  .card-info__content {
+    flex: 1;
+  }
+}
+
+.card-info_content{
+  flex: 1;
 }
