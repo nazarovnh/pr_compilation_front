@@ -3,6 +3,22 @@
   display: flex;
   align-items: center;
 
+  .form-container__email-input {
+    margin-top: 10%;
+  }
+
+  .form-container__password-input {
+    margin-top: 8%;
+  }
+
+  .form-container__button {
+    margin-top: 10%;
+  }
+
+  .form-container__link{
+    text-align: center;
+  }
+
   .signup_card {
     padding: 3% 0;
     min-width: 282px;

@@ -14,7 +14,7 @@ import { useCheckAuth } from '../features/hooks';
 import { useEffect } from 'react';
 import Spinner from '../shared/spinner/Spinner';
 import { changeIsAuth, changeLoadingValidate } from '../features/auth/slice/authSlice';
-import Topic from '../pages/topic/Topic';
+import Subject from '../pages/subject/Subject';
 
 const AppRouter = (): JSX.Element => {
   const [loading, isAuth] = useCheckAuth();
@@ -36,7 +36,7 @@ const AppRouter = (): JSX.Element => {
       <Routes>
         <Route element={<PrivateLayout />}>
           <Route path={routes.root.index} element={<Subjects />} />
-          <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Topic />} />
+          <Route path={`${routes.root.subject}/${routes.subjectId}`} element={<Subject />} />
           <Route
             path={`${routes.root.topic}/${routes.topicId}/${routes.root.task}/${routes.taskId}`}
             element={<Task />}

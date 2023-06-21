@@ -14,7 +14,9 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
+    react({
+      include: '**/*.tsx',
+    }),
     svgr({
       svgrOptions: {
         // svgr options

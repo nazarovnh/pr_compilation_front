@@ -23,3 +23,5 @@ export enum Language {
   CPP = 'cpp',
   JAVA = 'java',
 }
+
+// Write func for power digit

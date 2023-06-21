@@ -6,6 +6,16 @@
             "defaultLanguage": "C++, Python, Java",
             "footer-title": "Перейти к темам"
         },
+        "subject": {
+            "topics": {
+                "first_option": "тем",
+                "second_option": "тема",
+                "third_option": "темы"
+            },
+            "language": {
+                "any": "нет ограничений по ЯП"
+            }
+        },
         "topic": {
             "title": "Темы"
         },

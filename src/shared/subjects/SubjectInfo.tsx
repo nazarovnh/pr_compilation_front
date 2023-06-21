@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 import { Icon, IconType } from '../icon';
 
 import './SubjectInfo.scss';
+import Dot from '../dot/Dot';
 
 interface SubjectInfoProps {
   subjectTitle: string;
@@ -44,6 +45,7 @@ const SubjectInfo: React.FC<SubjectInfoProps> = ({
       </Typography>
       <div className="subject-info__tasks-info">
         <Typography variant="subtitle1">{`${numberHours} ${t('hours')}`}</Typography>
+        <Dot></Dot>
         <Typography ml={'5%'} className="subject-info__languages" variant="subtitle1">
           {language ?? t('defaultLanguage')}
         </Typography>

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { serverAddress } from '../../../app/constants';
-import { Subject } from '../model';
+import { GetSubjectRequest, Subject } from '../model';
 
 export const SUBJECT_API = 'SUBJECT_API';
 
@@ -16,10 +16,16 @@ const subjectApi = createApi({
         url: 'subjects/',
       }),
     }),
+    getSubject: builder.query<GetSubjectRequest, string>({
+      query: (subjectId) => ({
+        method: 'GET',
+        url: `subjects/${subjectId}/topics`,
+      }),
+    }),
   }),
 });
 
-export const { useGetSubjectsQuery } = subjectApi;
+export const { useGetSubjectsQuery, useLazyGetSubjectQuery } = subjectApi;
 
 export const subjectApiMiddleware = subjectApi.middleware;
 
